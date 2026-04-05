@@ -1,8 +1,18 @@
-const navLinks = document.querySelectorAll('nav a');
+window.addEventListener('scroll', reveal);
 
-navLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.forEach(item => item.classList.remove('active'));
-    link.classList.add('active');
-  });
-});
+function reveal() {
+    var reveals = document.querySelectorAll('.reveal');
+
+    for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var revealTop = reveals[i].getBoundingClientRect().top;
+        var revealPoint = 150;
+
+        if (revealTop < windowHeight - revealPoint) {
+            reveals[i].classList.add('active');
+        }
+    }
+}
+
+// Inicijalni poziv da se prikažu elementi na vrhu
+reveal();
