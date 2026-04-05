@@ -1,22 +1,131 @@
 <!DOCTYPE html>
 <html lang="sr">
 <head>
-  <meta charset="UTF-8">
-  <title>Biografija | Nikola Tesla</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sava Vladislavić | Velikani Vizije</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <nav class="topbar">
-    <a href="index.html">← Nazad na početnu</a>
-  </nav>
-  <main class="section" style="max-width: 800px; margin-top: 50px;">
-    <h1 style="font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--accent);">Nikola Tesla</h1>
-    <p style="margin-top: 2rem; font-size: 1.1rem; color: var(--text-muted);">
-      Nikola Tesla je rođen 1856. godine u Smiljanu. Bio je pronalazač, inženjer elektrotehnike i mašinstva, i futurista koji je najpoznatiji po svom doprinosu projektovanju modernog sistema napajanja naizmeničnom strujom (AC).
-    </p>
-    <p style="margin-top: 1rem; font-size: 1.1rem; color: var(--text-muted);">
-      Njegovi patenti i teorijski rad formirali su osnovu za savremene sisteme naizmenične električne energije, uključujući polifazne sisteme distribucije električne energije i motor na naizmeničnu struju.
-    </p>
+  <canvas id="particleCanvas"></canvas>
+ 
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo-bolt">⚡</span>
+      <div>
+        <h1 class="brand-title">Velikani Vizije</h1>
+        <p class="brand-sub">Tesla • Vladislavić</p>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html">← Početna</a>
+      <a href="tesla.html">Tesla</a>
+      <a href="sava.html" style="color: var(--accent)">Vladislavić</a>
+    </nav>
+  </header>
+ 
+  <main>
+    <div class="bio-hero gold-hero">
+      <div class="bio-hero-content">
+        <p class="eyebrow gold">1669 — 1738</p>
+        <h1 class="gold-text">Sava Vladislavić</h1>
+        <p class="bio-subtitle">Diplomat • Grof Raguzinski • Savetnik Careva</p>
+        <p style="color: var(--text-muted); max-width: 600px; font-size: 1rem;">
+          Srpski plemić čija je diplomatska veština oblikovala sudbinu imperija i razgraničila kontinente. Čovek koji je Rusiju i Kinu doveo za isti pregovarački sto.
+        </p>
+      </div>
+    </div>
+ 
+    <div class="bio-content">
+ 
+      <div class="fact-grid scroll-anim">
+        <div class="fact-item gold-fact">
+          <span class="fact-num">1669</span>
+          <span class="fact-label">Godina rođenja, Herceg Novi</span>
+        </div>
+        <div class="fact-item gold-fact">
+          <span class="fact-num">1727</span>
+          <span class="fact-label">Kjahtinski mir — kruna karijere</span>
+        </div>
+        <div class="fact-item gold-fact">
+          <span class="fact-num">3</span>
+          <span class="fact-label">Imperije — Osmanlijsko, Rusko, Kinesko</span>
+        </div>
+        <div class="fact-item gold-fact">
+          <span class="fact-num">150+</span>
+          <span class="fact-label">Godina trajao sporazum</span>
+        </div>
+      </div>
+ 
+      <div class="bio-section scroll-anim" style="margin-top: 3rem;">
+        <h2>🏛️ Poreklo i Mladi Dani</h2>
+        <p>Sava Lukich Vladislavić rodio se 1669. godine u Herceg Novom, tada pod osmanlijskom vlašću, u imućnoj srpskoj porodici. Porodično prezime "Vladislavić" ukazivalo je na plemenito poreklo, a sufiks "Raguzinski" dobio je po Dubrovniku (tada Ragusa), u čijoj je službi proveo deo mladosti kao trgovac.</p>
+        <p>Mladi Sava je rano pokazivao izuzetan dar za jezike i diplomatiju. Pored maternjeg srpskog, govorio je turski, italijanski, latinski, a kasnije je savladao i ruski jezik toliko dobro da je pisao izveštaje direktno caru Petru I bez prevodioca.</p>
+        <p>Kao uspešan mediteranski trgovac, Vladislavić je izgradio mrežu poslovnih veza od Carigrada do Venecije. Ova mreža kontakata postala je dragocena obaveštajna imovina kada je stupio u rusku carsku službu.</p>
+      </div>
+ 
+      <div class="bio-section scroll-anim">
+        <h2>👑 Ulazak u Rusku Carsku Službu</h2>
+        <p>Vladislavić je uspostavio kontakt sa carem Petrom I Velikim oko 1697. godine, u vreme Petrovih "Velikih poslanstava" — putovanja po Evropi u cilju modernizacije Rusije. Petar je odmah prepoznao Savinu vrednost: imao je kontakte u Carigradu, Veneciji i Rimu, govorio je sve relevantne jezike, i razumeo je i Istok i Zapad.</p>
+        <p>Vladislavić je nagrađen titulom grofa, posedima u Rusiji i visokim položajem u carskom dvoru. Postao je jedan od najuticajnijih savetnika Petra Velikog, posebno u pitanjima mediteranske i balkanske diplomatije.</p>
+        <p>Jedna od prvih važnih misija bila mu je na Balkanu, gde je radio na privlačenju srpskih i crnogorskih vojvoda na rusku stranu u ratu sa Osmanlijama. Vladislavićeva uloga bila je ključna u koordinisanju srpskog ustanka za vreme Rusko-turskog rata.</p>
+      </div>
+ 
+      <div class="bio-section scroll-anim">
+        <h2>🗺️ Misija u Kini — Kjahtinski Mir</h2>
+        <p>Najvažnija i najsloženija misija Vladislavićeve karijere bila je ekspedicija u Kinu (1725–1728). Car Petar I Veliki je preminuo 1725. godine tokom priprema, ali je carica Katarina I potvrdila Savinu misiju. Vladislavić je vodio ogromnu diplomatsku ekspediciju — na stotine ljudi, karavane konja i kamila — kroz Sibir do kineske granice.</p>
+        <p>Pregovori sa predstavnicima Kineske imperije bili su ekstremno složeni. Dve supersile imale su dugotrajne teritorijalne sporove u Sibiru i Centralnoj Aziji. Vladislavić je morao da balansira između ruskih teritorijalnih ambicija i kineske percepcije sebe kao "Nebeskog carstva" — jedine legitimne svetske sile.</p>
+        <p>Rezultat je bio Kjahtinski ugovor, potpisan 1727. godine. Ovaj sporazum je: (1) definitvno razgraničio rusko-kinesku granicu na hiljade kilometara; (2) ustanovio redovnu diplomatsku razmenu između dve imperije; (3) uspostavio grad Kjahtu kao legalno mesto za rusko-kinesku trgovinu; i (4) regulisao položaj ruske pravoslavne misije u Pekingu.</p>
+        <p>Kjahtinski mir trajao je u osnovi nepromenjen sve do 1860-ih godina — skoro vek i po — što ga čini jednim od najdugovečnijih diplomatskih sporazuma modernog doba.</p>
+      </div>
+ 
+      <div class="bio-section scroll-anim">
+        <h2>📚 Naučni Doprinos i Pisana Ostavština</h2>
+        <p>Vladislavić nije bio samo diplomat već i marljiv pisac i istraživač. Tokom i nakon kineske ekspedicije, sastavio je opsežan opis Kine, njene geografije, politike, ekonomije, kulture i vojnih kapaciteta — rad koji je ostao klasičan evropski izvor o Kini narednih pola veka.</p>
+        <p>Njegov "Sekretni opis Kineske imperije" bio je toliko poverljiv da je godinama ostao u carskim arhivima. Opisivao je vojnu silu Kine, kineske unutrašnje intrige, trgovačke puteve i ekonomske slabosti — informacije neprocenjive vrednosti za rusku spoljnu politiku.</p>
+        <p>Vladislavić je takođe ostavio detaljne opise Sibira, Mongolije i centralnoazijskih naroda — prava geografska enciklopedija regiona koji je tada bio terra incognita za Evropljane.</p>
+      </div>
+ 
+      <div class="bio-section scroll-anim">
+        <h2>⛪ Kticor i Čuvar Pravoslavlja</h2>
+        <p>Uprkos svom kosmopolitizmu, Vladislavić je ostao duboko privržen srpskom narodu i pravoslavnoj tradiciji. Iz sopstvenih sredstava finansirao je gradnju i obnovu crkava u Rusiji i na Balkanu.</p>
+        <p>Posebno je brinuo o srpskim iseljenicima u Rusiji, koji su nakon Velike Seobe Srba (1690) živeli u teškim uslovima. Vladislavić je posredovao da se srpskim oficirima u ruskoj vojsci daju bolji uslovi i privilegije.</p>
+        <p>Njegova ktitorska delatnost i briga za srpski narod učinili su ga figurom koja je premošćavala jaz između svetskih dvorova i srpske dijaspore — prototip srpskog "čoveka sveta" koji ne zaboravlja poreklo.</p>
+      </div>
+ 
+      <div class="bio-section scroll-anim">
+        <h2>🕯️ Nasleđe</h2>
+        <p>Sava Vladislavić preminuo je 1738. godine u Sankt Petersburgu. Za sobom je ostavio bogatu diplomatsku ostavštinu, opsežne pisane dokumente i brojna ktitorska dela.</p>
+        <p>U Srbiji i Crnoj Gori, Vladislavić je tek u 20. veku počeo da dobija zasluženo mesto u istorijskoj svesti. Danas se slavi kao jedan od najistaknutijih srpskih diplomata svih vremena — čovek koji je malom narodu dao glas na svetskim pozornicama moći.</p>
+        <p>Njegova priča podseća nas da su Srbi, uprkos vekovima ropstva i raspršenosti, uvek imali pojedince koji su, snagom intelekta i karaktera, uticali na tok svetske istorije.</p>
+      </div>
+ 
+      <section class="quote-panel scroll-anim" style="margin-top: 2rem; border-color: var(--border-gold);">
+        <div class="quote-inner">
+          <div class="quote-decoration" style="color: var(--accent);">❝</div>
+          <blockquote style="color: var(--text);">"Kada narod nema vlastitu državu, mora imati ljude koji će braniti njegove interese na tuđim dvorovima."</blockquote>
+          <div class="quote-author" style="color: var(--accent);">
+            <div class="quote-line" style="background: var(--accent);"></div>
+            <span>Sava Vladislavić — parafrazirano iz njegovih spisa</span>
+            <div class="quote-line" style="background: var(--accent);"></div>
+          </div>
+        </div>
+      </section>
+ 
+    </div>
   </main>
+ 
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand"><span class="logo-bolt">⚡</span><span>Velikani Vizije</span></div>
+      <p>Dizajnirano u čast velikana srpskog naroda.</p>
+      <p class="footer-copy">&copy; 2026</p>
+    </div>
+  </footer>
+ 
+  <script src="script.js"></script>
 </body>
 </html>

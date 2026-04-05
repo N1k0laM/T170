@@ -6,119 +6,408 @@
   <title>Tesla & Vladislavić | Velikani Vizije</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <audio id="bgMusic" loop>
     <source src="tamo-daleko.mp3" type="audio/mpeg">
   </audio>
-
+ 
+  <!-- Particle canvas -->
+  <canvas id="particleCanvas"></canvas>
+ 
   <header class="topbar">
     <div class="brand">
-      <span class="logo">⚡</span>
+      <span class="logo-bolt">⚡</span>
       <div>
-        <h1>Velikani Vizije</h1>
-        <p>Tesla • Vladislavić</p>
+        <h1 class="brand-title">Velikani Vizije</h1>
+        <p class="brand-sub">Tesla • Vladislavić</p>
       </div>
     </div>
     <nav id="mainNav">
       <a href="#home">Početna</a>
-      <a href="tesla.html">Biografija Tesla</a>
-      <a href="sava.html">Biografija Sava</a>
-      <button id="musicToggle" class="music-btn">🎵 Muzika: OFF</button>
+      <a href="tesla.html">Tesla</a>
+      <a href="sava.html">Vladislavić</a>
+      <a href="#timeline">Hronologija</a>
+      <a href="#izumi">Izumi</a>
+      <button id="musicToggle" class="music-btn">🎵 OFF</button>
     </nav>
+    <div class="nav-line"></div>
   </header>
-
+ 
   <main>
+    <!-- HERO -->
     <section class="hero" id="home">
       <div class="hero-copy">
-        <p class="eyebrow">Energija • Diplomatija • Budućnost</p>
-        <h2>Sila uma koja je menjala granice sveta.</h2>
-        <p>Otkrijte priču o dvojici velikana koji su redefinisali istoriju: Nikoli Tesli, čoveku koji je ukrotio munje, i grofu Savi Vladislaviću, diplomati koji je pomerao carstva.</p>
+        <p class="eyebrow">Energija • Diplomatija • Besmrtnost</p>
+        <h2 class="hero-title">Sila uma koja je <em>menjala granice</em> sveta.</h2>
+        <p class="hero-desc">Otkrijte priču o dvojici velikana koji su redefinisali istoriju: Nikoli Tesli, čoveku koji je ukrotio munje, i grofu Savi Vladislaviću, diplomati koji je pomerao carstva.</p>
         <div class="hero-actions">
-          <a href="tesla.html" class="button primary">O Nikoli Tesli</a>
-          <a href="sava.html" class="button secondary">O Grofu Savi</a>
+          <a href="tesla.html" class="button primary">Nikola Tesla</a>
+          <a href="sava.html" class="button secondary">Grof Sava</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-num">300+</span><span class="stat-label">Patenata</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><span class="stat-num">1697</span><span class="stat-label">Kjahtinski mir</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Nasleđe</span></div>
         </div>
       </div>
+ 
+      <!-- 3D Tesla Portrait -->
       <div class="hero-visual">
-        <div class="tesla-coil">
-          <div class="lightning-bolt"></div>
-          <div class="lightning-bolt delayed"></div>
-          <div class="lightning-bolt small"></div>
+        <div class="portrait-scene" id="portraitScene">
+          <div class="portrait-card" id="portraitCard">
+            <div class="portrait-front">
+              <div class="portrait-frame">
+                <div class="tesla-portrait-art">
+                  <svg viewBox="0 0 300 380" xmlns="http://www.w3.org/2000/svg" class="tesla-svg">
+                    <!-- Background glow -->
+                    <defs>
+                      <radialGradient id="glowGrad" cx="50%" cy="40%" r="50%">
+                        <stop offset="0%" stop-color="#00d4ff" stop-opacity="0.15"/>
+                        <stop offset="100%" stop-color="#03080f" stop-opacity="0"/>
+                      </radialGradient>
+                      <filter id="glow">
+                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                        <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                      </filter>
+                      <linearGradient id="suitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#1a2744"/>
+                        <stop offset="100%" stop-color="#0d1a33"/>
+                      </linearGradient>
+                    </defs>
+                    <rect width="300" height="380" fill="#03080f"/>
+                    <ellipse cx="150" cy="150" rx="100" ry="120" fill="url(#glowGrad)"/>
+                    <!-- Suit/body -->
+                    <rect x="60" y="270" width="180" height="120" rx="10" fill="url(#suitGrad)"/>
+                    <!-- Collar and tie -->
+                    <polygon points="140,270 160,270 150,310" fill="#0a0f1e"/>
+                    <rect x="147" y="280" width="6" height="50" fill="#00d4ff" opacity="0.6"/>
+                    <!-- White shirt -->
+                    <polygon points="110,270 140,270 130,300 120,300" fill="#edf2ff" opacity="0.9"/>
+                    <polygon points="160,270 190,270 180,300 170,300" fill="#edf2ff" opacity="0.9"/>
+                    <!-- Neck -->
+                    <rect x="138" y="240" width="24" height="35" rx="5" fill="#c4956a"/>
+                    <!-- Head -->
+                    <ellipse cx="150" cy="210" rx="55" ry="65" fill="#c4956a"/>
+                    <!-- Hair - slicked back, elegant -->
+                    <path d="M95 190 Q100 140 150 135 Q200 140 205 190 Q190 155 150 150 Q110 155 95 190Z" fill="#1a1008"/>
+                    <path d="M95 190 Q90 170 95 155 Q100 140 120 138" fill="none" stroke="#1a1008" stroke-width="3"/>
+                    <!-- Ears -->
+                    <ellipse cx="95" cy="215" rx="8" ry="12" fill="#b8845e"/>
+                    <ellipse cx="205" cy="215" rx="8" ry="12" fill="#b8845e"/>
+                    <!-- Eyes - piercing, intelligent -->
+                    <ellipse cx="130" cy="210" rx="12" ry="9" fill="#0a0a14"/>
+                    <ellipse cx="170" cy="210" rx="12" ry="9" fill="#0a0a14"/>
+                    <circle cx="130" cy="210" r="6" fill="#1e2a5e"/>
+                    <circle cx="170" cy="210" r="6" fill="#1e2a5e"/>
+                    <circle cx="128" cy="208" r="2" fill="#fff" opacity="0.8"/>
+                    <circle cx="168" cy="208" r="2" fill="#fff" opacity="0.8"/>
+                    <!-- Eyebrows - strong -->
+                    <path d="M118 198 Q130 193 142 196" stroke="#1a1008" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                    <path d="M158 196 Q170 193 182 198" stroke="#1a1008" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                    <!-- Moustache - Tesla's signature -->
+                    <path d="M132 232 Q140 228 150 230 Q160 228 168 232" stroke="#1a1008" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <path d="M135 230 Q142 226 150 228 Q158 226 165 230 Q158 236 150 235 Q142 236 135 230Z" fill="#1a1008"/>
+                    <!-- Nose -->
+                    <path d="M145 215 Q143 225 145 230 Q150 233 155 230 Q157 225 155 215" fill="none" stroke="#b8845e" stroke-width="1.5" opacity="0.7"/>
+                    <!-- Lightning bolt accent -->
+                    <path d="M255 30 L240 60 L252 60 L237 90" stroke="#00d4ff" stroke-width="2" fill="none" filter="url(#glow)" opacity="0.8"/>
+                    <!-- Year text -->
+                    <text x="150" y="365" text-anchor="middle" font-family="Bebas Neue" font-size="18" fill="#00d4ff" opacity="0.5" letter-spacing="3">1856 — 1943</text>
+                  </svg>
+                </div>
+                <div class="portrait-label">
+                  <span class="portrait-name">Nikola Tesla</span>
+                  <span class="portrait-title-label">Gospodar Munja</span>
+                </div>
+              </div>
+            </div>
+            <div class="portrait-back">
+              <div class="portrait-back-content">
+                <div class="back-quote-icon">⚡</div>
+                <blockquote class="back-quote">"Budućnost je moja."</blockquote>
+                <p class="back-detail">Pronalazač • Vizionar • Genije</p>
+                <ul class="back-facts">
+                  <li>Rođen: 10. jul 1856.</li>
+                  <li>Smiljan, Srbija</li>
+                  <li>300+ patenata</li>
+                  <li>Osnivač AC sistema</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="portrait-hint">← Prevuci za rotaciju →</div>
+          <div class="portrait-glow-ring"></div>
         </div>
       </div>
     </section>
-
-    <section class="section grid two-columns" id="tesla">
-      <div class="scroll-anim">
-        <span class="eyebrow" style="color: var(--primary)">Gospodar Munja</span>
-        <h3>Nikola Tesla</h3>
-        <p>Vizionarski pronalazač čiji su izumi na polju naizmenične struje i bežične komunikacije postali stubovi moderne civilizacije. Njegova svetlost i danas obasjava planetu.</p>
-        <div class="video-container-custom">
-            <iframe src="https://www.youtube.com/embed/TVOJ_ID_VIDEA_1" frameborder="0" allowfullscreen></iframe>
+ 
+    <!-- DIVIDER -->
+    <div class="section-divider">
+      <span>✦</span><span>✦</span><span>✦</span>
+    </div>
+ 
+    <!-- TESLA SEKCIJA -->
+    <section class="section" id="tesla">
+      <div class="section-label">01 — Gospodar Munja</div>
+      <div class="two-col-layout">
+        <div class="col-text scroll-anim">
+          <span class="eyebrow cyan">Nikola Tesla</span>
+          <h3>Čovek koji je rasvetlio svet</h3>
+          <p>Nikola Tesla (1856–1943) bio je vizionarski naučnik čiji su izumi na polju naizmenične struje (AC), radio tehnologije i bežičnog prenosa energije postali temelji moderne civilizacije. Rođen u Smiljanu, Srbija, Tesla je studirao u Grazu i Pragu pre nego što je emigrirao u Sjedinjene Američke Države 1884. godine.</p>
+          <p style="margin-top: 1rem;">U New Yorku je radio za Thomasa Edisona, ali se ubrzo razišao sa njim u čuvenoj "Ratu struja". Tesla je dokazao superiornost naizmenične struje i osnovao sopstvenu kompaniju. Njegova partnerska sa George Westinghousom rezultirala je prvom komercijalnom hydroelektranoms elektranom na Nijagarinim vodopadima 1895. godine.</p>
+          <a href="tesla.html" class="button primary" style="margin-top: 2rem; display: inline-block;">Puna Biografija →</a>
+        </div>
+        <div class="col-cards">
+          <div class="feature-card scroll-anim" style="--delay: 0.1s">
+            <div class="fc-icon cyan-icon">⚡</div>
+            <div>
+              <h4>Naizmenična Struja</h4>
+              <p>Polifazni AC sistem koji danas napaja celu planetu. Pobeda nad Edisonovom jednosmernom strujom.</p>
+            </div>
+          </div>
+          <div class="feature-card scroll-anim" style="--delay: 0.2s">
+            <div class="fc-icon cyan-icon">📡</div>
+            <div>
+              <h4>Radio Tehnologija</h4>
+              <p>Tesla je demonstrirao bežični prenos signala pre Marconija. Patent anuliran u SAD 1943. godine.</p>
+            </div>
+          </div>
+          <div class="feature-card scroll-anim" style="--delay: 0.3s">
+            <div class="fc-icon cyan-icon">🔬</div>
+            <div>
+              <h4>Tesla Kalem</h4>
+              <p>Rezonantni transformator koji generiše visoko-naponske, visoko-frekvencijske izmjenične struje. I danas u upotrebi.</p>
+            </div>
+          </div>
+          <div class="feature-card scroll-anim" style="--delay: 0.4s">
+            <div class="fc-icon cyan-icon">🌐</div>
+            <div>
+              <h4>Worldcom projekat</h4>
+              <p>Wardenclyffe kula — ambiciozni san o besplatnoj globalnoj bežičnoj energiji za čovečanstvo.</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="card highlight scroll-anim">
-        <h4>Ključno Nasleđe</h4>
-        <ul>
-          <li><strong>Polifazni sistem:</strong> Temelj svetske elektro-mreže.</li>
-          <li><strong>Radio tehnologija:</strong> Pionir bežičnog prenosa informacija.</li>
-          <li><strong>Humanizam:</strong> San o besplatnoj energiji za sve.</li>
-        </ul>
-      </div>
     </section>
-
-    <section class="section grid two-columns reverse-mobile" id="sava">
-      <div class="card highlight gold-card scroll-anim">
-        <h4>Diplomatski Podvizi</h4>
-        <ul>
-          <li><strong>Mir u Aziji:</strong> Razgraničenje Rusije i Kine (Kjahtinski mir).</li>
-          <li><strong>Carska služba:</strong> Najodaniji savetnik Petra Velikog.</li>
-          <li><strong>Koren tradicije:</strong> Čuvar pravoslavlja i ktitor prosvete.</li>
-        </ul>
-      </div>
-      <div class="scroll-anim">
-        <span class="eyebrow" style="color: var(--accent)">Grof Raguzinski</span>
-        <h3>Sava Vladislavić</h3>
-        <p>Srpski plemić iz Hercegovine čija je mudrost oblikovala spoljnu politiku moćne Rusije. Čovek koji je svojim intelektom i diplomatijom povezao daleke kulture.</p>
-        <div class="video-container-custom gold-glow">
-            <iframe src="https://www.youtube.com/embed/TVOJ_ID_VIDEA_2" frameborder="0" allowfullscreen></iframe>
+ 
+    <!-- TESLA BROJKE -->
+    <section class="stats-section scroll-anim">
+      <div class="stats-grid">
+        <div class="stat-box">
+          <span class="stat-big">300<sup>+</sup></span>
+          <span class="stat-desc">Patenata u 26 zemalja</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-big">1884</span>
+          <span class="stat-desc">Dolazak u Ameriku</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-big">1895</span>
+          <span class="stat-desc">Nijagarini vodopadi — prva AC elektrana</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-big">6</span>
+          <span class="stat-desc">Jezika govorio tečno</span>
         </div>
       </div>
     </section>
-
-    <section class="section" id="video-arhiva">
-      <h3 style="text-align: center; margin-bottom: 3rem;">Moja Video Arhiva</h3>
-      <div class="cards-grid">
-        <article class="card video-card scroll-anim">
-          <div class="mini-video-placeholder">Tvoj Video 3</div>
-          <h4>Simboli i Tajne</h4>
-        </article>
-        <article class="card video-card scroll-anim">
-          <div class="mini-video-placeholder">Tvoj Video 4</div>
-          <h4>Istorijski Kontekst</h4>
-        </article>
-        <article class="card video-card scroll-anim">
-          <div class="mini-video-placeholder">Tvoj Video 5</div>
-          <h4>Ostavština za Budućnost</h4>
-        </article>
+ 
+    <!-- DIVIDER -->
+    <div class="section-divider gold-div">
+      <span>✦</span><span>✦</span><span>✦</span>
+    </div>
+ 
+    <!-- SAVA SEKCIJA -->
+    <section class="section" id="sava">
+      <div class="section-label gold-label">02 — Diplomat Careva</div>
+      <div class="two-col-layout reverse">
+        <div class="col-cards">
+          <div class="feature-card scroll-anim gold-card-feat" style="--delay: 0.1s">
+            <div class="fc-icon gold-icon">🏛️</div>
+            <div>
+              <h4>Kjahtinski Mir (1727)</h4>
+              <p>Pregovarao granice između Rusije i Kine — sporazum koji je trajao vek i pol, definišući Aziju.</p>
+            </div>
+          </div>
+          <div class="feature-card scroll-anim gold-card-feat" style="--delay: 0.2s">
+            <div class="fc-icon gold-icon">👑</div>
+            <div>
+              <h4>Savetnik Petra Velikog</h4>
+              <p>Kao najbliži savetnik cara, upravljao je tajnom diplomatijom i obaveštajnom mrežom Rusije.</p>
+            </div>
+          </div>
+          <div class="feature-card scroll-anim gold-card-feat" style="--delay: 0.3s">
+            <div class="fc-icon gold-icon">⛪</div>
+            <div>
+              <h4>Ktitor i Prosvetitelj</h4>
+              <p>Gradio crkve i škole, čuvajući srpsko pravoslavlje i kulturu van granica domovine.</p>
+            </div>
+          </div>
+          <div class="feature-card scroll-anim gold-card-feat" style="--delay: 0.4s">
+            <div class="fc-icon gold-icon">🗺️</div>
+            <div>
+              <h4>Istraživač i Kartograf</h4>
+              <p>Vodio ekspedicije u Sibir i Kinu, ostavljajući detaljne opise kultura i geografije Azije.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-text scroll-anim">
+          <span class="eyebrow gold">Sava Vladislavić — Grof Raguzinski</span>
+          <h3>Srpski Diplomata koji je premerio Aziju</h3>
+          <p>Sava Lukich Vladislavić-Raguzinski (1669–1738) bio je srpski trgovac, diplomat i grof u ruskoj carskoj službi. Rođen u Herceg Novom, Crna Gora, dokazao je izuzetnu diplomatsku veštinu već u prvim misijama za cara Petra I Velikog.</p>
+          <p style="margin-top: 1rem;">Vladislavić je bio zadužen za jednu od najvažnijih misija 18. veka — razgraničenje između Ruskog i Kineskog carstva. Pregovori su rezultirali Kjahtinskm mirom (1727), koji je utemeljio stotinu pedeset godina stabilnih odnosa između dveju supersila.</p>
+          <p style="margin-top: 1rem;">Ostavio je i opsežan geografski opis Kine i Sibira, koji je bio od neprocenjive vrednosti za evropsku nauku.</p>
+          <a href="sava.html" class="button secondary" style="margin-top: 2rem; display: inline-block;">Puna Biografija →</a>
+        </div>
       </div>
     </section>
-
-    <section class="section quote-panel scroll-anim">
-      <div>
-        <h3>Mudrost Vizionara</h3>
-        <blockquote>"Neka budućnost kaže istinu i proceni svakoga prema njegovom radu i dostignućima."</blockquote>
-        <p>— Nikola Tesla</p>
+ 
+    <!-- HRONOLOGIJA -->
+    <section class="section" id="timeline">
+      <div class="section-label">03 — Hronologija</div>
+      <h3 class="section-title scroll-anim">Ključni Momenti Istorije</h3>
+      <div class="timeline">
+        <div class="tl-item scroll-anim">
+          <div class="tl-year cyan">1669</div>
+          <div class="tl-dot cyan-dot"></div>
+          <div class="tl-content">
+            <h4>Rođen Sava Vladislavić</h4>
+            <p>Herceg Novi, Crna Gora — budući grof i diplomat carevine.</p>
+          </div>
+        </div>
+        <div class="tl-item scroll-anim right">
+          <div class="tl-year gold">1697</div>
+          <div class="tl-dot gold-dot"></div>
+          <div class="tl-content right-content">
+            <h4>Sava ulazi u službu Petra Velikog</h4>
+            <p>Postaje jedan od najvažnijih diplomatskih agenata Rusije u Mediteranu.</p>
+          </div>
+        </div>
+        <div class="tl-item scroll-anim">
+          <div class="tl-year cyan">1727</div>
+          <div class="tl-dot cyan-dot"></div>
+          <div class="tl-content">
+            <h4>Kjahtinski Mir</h4>
+            <p>Vladislavić potpisuje granični sporazum Rusije i Kine koji traje 150 godina.</p>
+          </div>
+        </div>
+        <div class="tl-item scroll-anim right">
+          <div class="tl-year gold">1856</div>
+          <div class="tl-dot gold-dot"></div>
+          <div class="tl-content right-content">
+            <h4>Rođen Nikola Tesla</h4>
+            <p>Smiljan, Srbija — budući genije koji će rasvetliti svet.</p>
+          </div>
+        </div>
+        <div class="tl-item scroll-anim">
+          <div class="tl-year cyan">1884</div>
+          <div class="tl-dot cyan-dot"></div>
+          <div class="tl-content">
+            <h4>Tesla dolazi u New York</h4>
+            <p>Sa 4 centa u džepu i pismom preporuke za Edisona, počinje nova era.</p>
+          </div>
+        </div>
+        <div class="tl-item scroll-anim right">
+          <div class="tl-year gold">1895</div>
+          <div class="tl-dot gold-dot"></div>
+          <div class="tl-content right-content">
+            <h4>Nijagarini Vodopadi</h4>
+            <p>Prva AC hidroelektrana — Tesla rasvetljava grad Buffalo, New York.</p>
+          </div>
+        </div>
+        <div class="tl-item scroll-anim">
+          <div class="tl-year cyan">1901</div>
+          <div class="tl-dot cyan-dot"></div>
+          <div class="tl-content">
+            <h4>Wardenclyffe Kula</h4>
+            <p>Tesla počinje izgradnju kule za globalnu bežičnu komunikaciju i energiju.</p>
+          </div>
+        </div>
+        <div class="tl-item scroll-anim right">
+          <div class="tl-year gold">1943</div>
+          <div class="tl-dot gold-dot"></div>
+          <div class="tl-content right-content">
+            <h4>Tesla napušta ovaj svet</h4>
+            <p>New York, 7. januara. Posthumno mu priznat patent za radio u SAD.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- IZUMI GRID -->
+    <section class="section" id="izumi">
+      <div class="section-label">04 — Izumi & Nasleđe</div>
+      <h3 class="section-title scroll-anim">Teslini Revolucionarni Izumi</h3>
+      <div class="inventions-grid">
+        <div class="inv-card scroll-anim large-card" style="--delay: 0s">
+          <div class="inv-icon">⚡</div>
+          <h4>AC Motor</h4>
+          <p>Indukcioni motor na naizmeničnu struju koji je revolucionisao industrijsku proizvodnju i omogućio masovnu elektrifikaciju.</p>
+          <span class="inv-year">1887</span>
+        </div>
+        <div class="inv-card scroll-anim" style="--delay: 0.1s">
+          <div class="inv-icon">📡</div>
+          <h4>Radio</h4>
+          <p>Bežični prenos signala demonstriran godinama pre Marconija.</p>
+          <span class="inv-year">1893</span>
+        </div>
+        <div class="inv-card scroll-anim" style="--delay: 0.15s">
+          <div class="inv-icon">🔆</div>
+          <h4>Fluorescentna Svetlost</h4>
+          <p>Razvio je neonske i fluorescentne cevi decenije pre komercijalne upotrebe.</p>
+          <span class="inv-year">1891</span>
+        </div>
+        <div class="inv-card scroll-anim" style="--delay: 0.2s">
+          <div class="inv-icon">🌊</div>
+          <h4>Tesla Kalem</h4>
+          <p>Rezonantni transformator — osnova moderne radio i TV tehnologije.</p>
+          <span class="inv-year">1891</span>
+        </div>
+        <div class="inv-card scroll-anim" style="--delay: 0.25s">
+          <div class="inv-icon">🚢</div>
+          <h4>Radio-kontrola</h4>
+          <p>Prve daljinski upravljane čamce demonstrirao u Madison Square Gardenu.</p>
+          <span class="inv-year">1898</span>
+        </div>
+        <div class="inv-card scroll-anim" style="--delay: 0.3s">
+          <div class="inv-icon">💡</div>
+          <h4>X-zraci</h4>
+          <p>Istraživao rendgenske zrake nezavisno i pre Röntgena, bez priznavanja.</p>
+          <span class="inv-year">1895</span>
+        </div>
+      </div>
+    </section>
+ 
+    <!-- QUOTE PANEL -->
+    <section class="quote-panel scroll-anim">
+      <div class="quote-inner">
+        <div class="quote-decoration">❝</div>
+        <blockquote>"Neka budućnost kaže istinu i proceni svakoga prema njegovom radu i dostignućima. Sadašnjost je njihova; budućnost, za koju sam zaista radio, je moja."</blockquote>
+        <div class="quote-author">
+          <div class="quote-line"></div>
+          <span>Nikola Tesla</span>
+          <div class="quote-line"></div>
+        </div>
       </div>
     </section>
   </main>
-
+ 
   <footer class="footer">
-    <p>Dizajnirano u čast velikana srpskog naroda. &copy; 2026</p>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-bolt">⚡</span>
+        <span>Velikani Vizije</span>
+      </div>
+      <p>Dizajnirano u čast velikana srpskog naroda.</p>
+      <p class="footer-copy">&copy; 2026 — Sva prava zadržana</p>
+    </div>
   </footer>
-
+ 
   <script src="script.js"></script>
 </body>
 </html>

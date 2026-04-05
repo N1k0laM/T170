@@ -1,22 +1,148 @@
 <!DOCTYPE html>
 <html lang="sr">
 <head>
-  <meta charset="UTF-8">
-  <title>Biografija | Nikola Tesla</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nikola Tesla | Velikani Vizije</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <nav class="topbar">
-    <a href="index.html">← Nazad na početnu</a>
-  </nav>
-  <main class="section" style="max-width: 800px; margin-top: 50px;">
-    <h1 style="font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--accent);">Nikola Tesla</h1>
-    <p style="margin-top: 2rem; font-size: 1.1rem; color: var(--text-muted);">
-      Nikola Tesla je rođen 1856. godine u Smiljanu. Bio je pronalazač, inženjer elektrotehnike i mašinstva, i futurista koji je najpoznatiji po svom doprinosu projektovanju modernog sistema napajanja naizmeničnom strujom (AC).
-    </p>
-    <p style="margin-top: 1rem; font-size: 1.1rem; color: var(--text-muted);">
-      Njegovi patenti i teorijski rad formirali su osnovu za savremene sisteme naizmenične električne energije, uključujući polifazne sisteme distribucije električne energije i motor na naizmeničnu struju.
-    </p>
+  <canvas id="particleCanvas"></canvas>
+ 
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo-bolt">⚡</span>
+      <div>
+        <h1 class="brand-title">Velikani Vizije</h1>
+        <p class="brand-sub">Tesla • Vladislavić</p>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html">← Početna</a>
+      <a href="tesla.html" style="color: var(--primary)">Tesla</a>
+      <a href="sava.html">Vladislavić</a>
+    </nav>
+  </header>
+ 
+  <main>
+    <div class="bio-hero">
+      <div class="bio-hero-content">
+        <p class="eyebrow cyan">1856 — 1943</p>
+        <h1 class="cyan-text">Nikola Tesla</h1>
+        <p class="bio-subtitle">Pronalazač • Vizionar • Gospodar Munja</p>
+        <p style="color: var(--text-muted); max-width: 600px; font-size: 1rem;">
+          Čovek koji je ukrotio struju i zasnovao modernu civilizaciju. Genijalni Srbin čije ideje prethode svom vremenu za čitav vek.
+        </p>
+      </div>
+    </div>
+ 
+    <div class="bio-content">
+ 
+      <div class="fact-grid scroll-anim">
+        <div class="fact-item">
+          <span class="fact-num">1856</span>
+          <span class="fact-label">Godina rođenja, Smiljan</span>
+        </div>
+        <div class="fact-item">
+          <span class="fact-num">300<sup style="font-size:0.5em">+</sup></span>
+          <span class="fact-label">Patenata u 26 zemalja</span>
+        </div>
+        <div class="fact-item">
+          <span class="fact-num">6</span>
+          <span class="fact-label">Jezika govorio tečno</span>
+        </div>
+        <div class="fact-item">
+          <span class="fact-num">AC</span>
+          <span class="fact-label">Sistem koji napaja svet</span>
+        </div>
+      </div>
+ 
+      <div class="bio-section scroll-anim" style="margin-top: 3rem;">
+        <h2>⚡ Rano Detinjstvo i Obrazovanje</h2>
+        <p>Nikola Tesla je rođen 10. jula 1856. godine u selu Smiljan, u tadašnjem Austrijskom carstvu (danas Hrvatska), od oca Milutina Tesle, srpskog pravoslavnog sveštenika, i majke Đuke Tesla, čije su me­morij­ske spo­sob­nos­ti i ljubav prema pronalascima snažno uticale na mladog Nikolu.</p>
+        <p>Pohađao je realnu gimnaziju u Karlovcu, gde je fascinantno brzo rešavao integral­ne račune, toliko brzo da su nastavnici sumnjali da vara. Studije elektrotehnike i mašinstva upisao je na Tehničkom sveučilištu u Gracu 1875. godine, a potom prešao na Univerzitet u Pragu.</p>
+        <p>Dok je bio u Budimpešti 1882. godine, Tesla je tokom šetnje parka imao blic-uvid koji je promenio svet: zamišljao je rotirajuće magnetno polje — osnovu indukcijskog motora na naizmeničnu struju. Legenda kaže da je izum skicirao palicom u pesku.</p>
+      </div>
+ 
+      <div class="bio-section scroll-anim">
+        <h2>🌊 Dolazak u Ameriku — Rat Struja</h2>
+        <p>Tesla je u New York stigao 6. juna 1884. godine sa svega četiri centa u džepu, nekoliko pesama koje je sam napisao i knjigom o aeronautici. Imao je pismo preporuke za Thomasa Edisona od Charles Batchelor-a koje je glasilo: "Poznajem dva velika čoveka i vi ste jedan; ovaj dečko je drugi."</p>
+        <p>Narednih šest meseci Tesla je radio za Edisona, poboljšavajući njegove generatore jednosmerne struje (DC). Edison je navodno obećao 50.000 dolara nagrade za uspešno poboljšanje, ali kada je Tesla završio posao, Edison je rekao da se šalio — "Ti ne razumeš američki humor." Tesla je odmah dao otkaz.</p>
+        <p>Tesla je 1887. osnovao sopstvenu laboratoriju i demonstrirao indukcijski motor na naizmeničnu struju u Američkom institutu elektro-inženjera 1888. godine. George Westinghouse je kupio Tesline patente za AC sistem, što je pokrenulo čuveni "Rat Struja" između Westinghouse-Teslinog AC sistema i Edisonovog DC sistema.</p>
+        <p>Kulminacija rata bila je Svetska izložba u Čikagu 1893. godine, gde su Tesline sijalice rasvetlile ceo grad, i izgradnja prve AC hidroelektrane na Nijagarinim vodopadima 1895. — koja je elektrificirala grad Buffalo i dokazala superiornost AC sistema zauvek.</p>
+      </div>
+ 
+      <div class="bio-section scroll-anim">
+        <h2>📡 Bežični Prenos i Wardenclyffe</h2>
+        <p>Tesla je 1893. u St. Louisu demonstrirao bežični prenos signala — godinama pre Marconijev eksperimenata. Razvio je rezonantni transformator poznat kao "Tesla kalem", koji je i danas u upotrebi u radijskim predajnicima i medicinskim uređajima.</p>
+        <p>Njegov najambiciozniji projekat bila je Wardenclyffe kula (1901–1917) na Long Islandu — gigantska toranj koji je trebalo da prenosi ne samo poruke, već i besplatnu energiju bežičnim putem celom planeti. Finansijer J.P. Morgan je povukao sredstva kada je shvatio da besplatna energija ne donosi profit.</p>
+        <p>Nikola Tesla je tvrdio da je primao signale iz svemira u svojoj laboratoriji u Kolorado Springsu 1899. godine — što mnogi danas tumače kao prve sluđajne detekcije radio signala iz svemira (pulsare ili jovijanske radio emisije).</p>
+      </div>
+ 
+      <div class="bio-section scroll-anim">
+        <h2>🔬 Izumi koji su Promenili Svet</h2>
+        <p>Tokom karijere, Tesla je razvio ili doprineo sledećim pronalascima:</p>
+        <div class="fact-grid" style="margin-top: 1.5rem;">
+          <div class="fact-item" style="text-align:left; padding: 1.3rem;">
+            <strong style="color:var(--primary); display:block; margin-bottom:0.4rem;">⚡ AC Motor (1887)</strong>
+            <span class="fact-label">Indukcioni motor koji pokreće industrijsku civilizaciju</span>
+          </div>
+          <div class="fact-item" style="text-align:left; padding: 1.3rem;">
+            <strong style="color:var(--primary); display:block; margin-bottom:0.4rem;">📡 Radio (1893)</strong>
+            <span class="fact-label">Demonstriran pre Marconija; patent priznat posthumno</span>
+          </div>
+          <div class="fact-item" style="text-align:left; padding: 1.3rem;">
+            <strong style="color:var(--primary); display:block; margin-bottom:0.4rem;">🔆 Fluorescentna svetlost</strong>
+            <span class="fact-label">Razvio neonske i fluorescentne cevi decenijama pre upotrebe</span>
+          </div>
+          <div class="fact-item" style="text-align:left; padding: 1.3rem;">
+            <strong style="color:var(--primary); display:block; margin-bottom:0.4rem;">🚢 Daljinsko upravljanje (1898)</strong>
+            <span class="fact-label">Prva demonstracija radio-kontrolisanog broda u MSGardenu</span>
+          </div>
+          <div class="fact-item" style="text-align:left; padding: 1.3rem;">
+            <strong style="color:var(--primary); display:block; margin-bottom:0.4rem;">💡 X-zraci (1895)</strong>
+            <span class="fact-label">Istraživao rendgenske zrake nezavisno od Röntgena</span>
+          </div>
+          <div class="fact-item" style="text-align:left; padding: 1.3rem;">
+            <strong style="color:var(--primary); display:block; margin-bottom:0.4rem;">🌐 Tesla Kalem (1891)</strong>
+            <span class="fact-label">Rezonantni transformator; osnova moderne radio tehnologije</span>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="bio-section scroll-anim">
+        <h2>🕯️ Poslednje Godine i Nasleđe</h2>
+        <p>Posle bankrota Wardenclyffe projekta, Tesla je nastavio da radi na raznim izumima ali bez finansijskog uspeha. Živeo je u skromnim uslovima u New Yorku, često u hotelu New Yorker, na teret kompanije Westinghouse.</p>
+        <p>Nikola Tesla je preminuo 7. januara 1943. godine, u 86. godini, u sobi 3327 hotela New Yorker. Samo nekoliko meseci nakon njegove smrti, Vrhovni sud SAD-a anulirao je Marconijev patent za radio i potvrdio Teslin primat.</p>
+        <p>Danas je Tesla slavan više nego ikad. Kompanija Tesla, Inc., mernja jedinica za magnetno polje (tesla), aerodrom u Beogradu i bezbroj ulica, škola i instituta nose njegovo ime. Njegova vizija bežičnog prenosa energije i besplatne električne energije za svako biće na Zemlji i danas inspiriše naučnike i inženjere.</p>
+      </div>
+ 
+      <section class="quote-panel scroll-anim" style="margin-top: 2rem;">
+        <div class="quote-inner">
+          <div class="quote-decoration">❝</div>
+          <blockquote>"Neka budućnost kaže istinu i proceni svakoga prema njegovom radu i dostignućima. Sadašnjost je njihova; budućnost, za koju sam zaista radio, je moja."</blockquote>
+          <div class="quote-author">
+            <div class="quote-line"></div>
+            <span>Nikola Tesla</span>
+            <div class="quote-line"></div>
+          </div>
+        </div>
+      </section>
+ 
+    </div>
   </main>
+ 
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand"><span class="logo-bolt">⚡</span><span>Velikani Vizije</span></div>
+      <p>Dizajnirano u čast velikana srpskog naroda.</p>
+      <p class="footer-copy">&copy; 2026</p>
+    </div>
+  </footer>
+ 
+  <script src="script.js"></script>
 </body>
 </html>
