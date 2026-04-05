@@ -19,7 +19,6 @@ body {
   background: var(--bg);
   line-height: 1.6;
   overflow-x: hidden;
-  text-align: center;
 }
 
 /* NAVIGACIJA */
@@ -30,81 +29,89 @@ body {
   border-bottom: 1px solid var(--border);
 }
 
-.brand { text-align: left; }
-.brand h1 { font-size: 1.2rem; font-family: 'Playfair Display', serif; color: var(--accent); margin: 0; }
-.brand p { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; margin: 0; }
+.brand h1 { font-size: 1.2rem; font-family: 'Playfair Display', serif; color: var(--accent); }
+.brand p { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; }
 .logo { width: 40px; height: 40px; display: grid; place-items: center; background: var(--primary); color: #000; border-radius: 50%; font-weight: bold; }
 
-nav { display: flex; align-items: center; gap: 1rem; }
-nav a { color: var(--text-muted); text-decoration: none; font-size: 0.8rem; font-weight: 500; transition: 0.3s; }
+nav { display: flex; align-items: center; gap: 1.2rem; }
+nav a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: 0.3s; }
 nav a:hover { color: var(--primary); }
 
 .music-btn {
   background: none; border: 1px solid var(--primary); color: var(--primary);
-  padding: 6px 12px; border-radius: 20px; cursor: pointer; font-size: 0.7rem; transition: 0.3s;
+  padding: 6px 12px; border-radius: 20px; cursor: pointer; font-size: 0.75rem; transition: 0.3s;
 }
 .music-btn.active { background: var(--primary); color: #000; }
 
 /* HERO SEKCIJA */
-.hero { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2rem; align-items: center; padding: 80px 5%; min-height: 85vh; }
-.hero-copy { display: flex; flex-direction: column; align-items: center; text-align: center; }
-.hero h2 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 8vw, 4rem); line-height: 1.1; margin: 1.5rem 0; }
-.eyebrow { text-transform: uppercase; letter-spacing: 3px; font-weight: 700; font-size: 0.75rem; color: var(--primary); }
+.hero { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2rem; align-items: center; padding: 100px 5%; min-height: 85vh; }
+.hero h2 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1; margin: 1.5rem 0; }
+.eyebrow { text-transform: uppercase; letter-spacing: 3px; font-weight: 700; font-size: 0.8rem; color: var(--primary); }
 
-.hero-actions { display: flex; flex-direction: column; gap: 1rem; width: 100%; max-width: 300px; margin-top: 2rem; }
-.button { padding: 1.1rem; border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.3s; text-align: center; font-size: 0.95rem; }
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.button { padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.3s; text-align: center; font-size: 0.9rem; }
 .primary { background: var(--primary); color: #000; box-shadow: 0 10px 20px rgba(0, 212, 255, 0.2); }
-.secondary { border: 2px solid var(--accent); color: var(--accent); }
+.secondary { border: 1px solid var(--accent); color: var(--accent); }
+.secondary:hover { background: var(--accent); color: #000; }
 
-/* MUNJA ANIMACIJA */
-.hero-visual { display: flex; justify-content: center; align-items: center; margin: 30px 0; }
+/* ANIMACIJA MUNJE (Lightning Bolt) */
 .tesla-coil {
-  width: 250px; height: 250px; position: relative;
+  width: 300px; height: 300px; position: relative;
   background: radial-gradient(circle, rgba(0,212,255,0.1) 0%, transparent 70%);
+  display: flex; justify-content: center; align-items: center;
 }
+
 .lightning-bolt {
-  position: absolute; width: 4px; height: 100px; background: #fff;
+  position: absolute; width: 4px; height: 130px; background: #fff;
   clip-path: polygon(50% 0%, 0% 20%, 90% 35%, 10% 55%, 100% 75%, 30% 100%);
   filter: drop-shadow(0 0 12px var(--primary));
-  opacity: 0; animation: bolt-strike 0.6s infinite; left: 50%;
+  opacity: 0; animation: bolt-strike 0.6s infinite;
 }
 .lightning-bolt.delayed { animation-delay: 0.2s; transform: rotate(25deg) scale(0.7); }
-.lightning-bolt.small { animation-delay: 0.4s; transform: rotate(-30deg) scale(0.5); height: 70px; }
+.lightning-bolt.small { animation-delay: 0.4s; transform: rotate(-30deg) scale(0.5); height: 80px; }
 
 @keyframes bolt-strike {
   0%, 20%, 100% { opacity: 0; }
   5%, 15% { opacity: 1; }
 }
 
-/* SEKCIJE */
-.section { padding: 60px 5%; max-width: 1200px; margin: 0 auto; }
-.grid { display: grid; gap: 3rem; align-items: center; grid-template-columns: 1fr; }
-h3 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 1.5rem; }
-.card { background: var(--surface); padding: 2rem; border-radius: 20px; border: 1px solid var(--border); text-align: left; }
+/* SEKCIJE I KARTICE */
+.section { padding: 80px 5%; max-width: 1300px; margin: 0 auto; }
+.grid { display: grid; gap: 4rem; align-items: center; grid-template-columns: 1fr 1fr; }
+
+h3 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 1.5rem; }
+.card { background: var(--surface); padding: 2rem; border-radius: 20px; border: 1px solid var(--border); box-shadow: var(--shadow); }
 .highlight { border-left: 5px solid var(--primary); }
-.gold-card { border-left-color: var(--accent); }
-.card li { margin-bottom: 1rem; list-style: none; color: var(--text-muted); }
+.gold-card { border-left-color: var(--accent); background: rgba(255, 184, 0, 0.02); }
+.card ul { list-style: none; }
+.card li { margin-bottom: 1rem; color: var(--text-muted); }
 .card li strong { color: var(--text); display: block; }
 
 /* VIDEO */
 .video-container-custom {
   position: relative; padding-bottom: 56.25%; height: 0; border-radius: 15px; overflow: hidden;
-  border: 1px solid var(--primary); margin-top: 2rem;
+  border: 1px solid var(--primary); margin-top: 2rem; box-shadow: var(--shadow);
 }
 .video-container-custom iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.gold-glow { border-color: var(--accent); }
 
-/* DESKTOP PRILAGOĐAVANJE */
-@media (min-width: 880px) {
-  .hero { grid-template-columns: 1.2fr 0.8fr; text-align: left; }
-  .hero-copy { align-items: flex-start; text-align: left; }
-  .hero-actions { flex-direction: row; max-width: none; }
-  .grid { grid-template-columns: 1fr 1fr; }
-  .reverse-mobile { display: flex; flex-direction: row-reverse; }
-  .topbar { flex-direction: row; }
-}
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+.mini-video-placeholder { width: 100%; aspect-ratio: 16/9; background: #000; border-radius: 12px; display: flex; align-items: center; justify-content: center; border: 1px dashed var(--border); margin-bottom: 1rem; }
 
+/* QUOTE I FOOTER */
+.quote-panel { background: linear-gradient(145deg, #05101a, #07111e); padding: 5rem 5%; text-align: center; border-radius: 30px; border: 1px solid var(--border); }
+blockquote { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-style: italic; max-width: 800px; margin: 0 auto 1rem; }
+.footer { padding: 3rem; text-align: center; color: var(--text-muted); border-top: 1px solid var(--border); }
+
+/* RESPONZIVNOST ZA TELEFON */
 @media (max-width: 880px) {
-  .topbar { flex-direction: column; gap: 1rem; }
+  .topbar { flex-direction: column; gap: 1rem; text-align: center; }
+  nav { flex-wrap: wrap; justify-content: center; gap: 0.8rem; }
+  
+  .hero { grid-template-columns: 1fr; text-align: center; padding-top: 50px; }
+  .hero-visual { order: -1; }
+  .hero-actions { justify-content: center; flex-direction: column; }
+  
+  .grid { grid-template-columns: 1fr; gap: 2rem; }
+  .reverse-mobile { display: flex; flex-direction: column-reverse; }
 }
-
-.footer { padding: 3rem; color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid var(--border); }
