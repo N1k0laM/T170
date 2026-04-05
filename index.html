@@ -10,6 +10,10 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <audio id="bgMusic" loop>
+    <source src="tamo-daleko.mp3" type="audio/mpeg">
+  </audio>
+
   <header class="topbar">
     <div class="brand">
       <span class="logo">⚡</span>
@@ -18,11 +22,11 @@
         <p>Tesla • Vladislavić</p>
       </div>
     </div>
-    <nav>
+    <nav id="mainNav">
       <a href="#home">Početna</a>
-      <a href="#tesla">Nikola Tesla</a>
-      <a href="#sava">Sava Raguzinski</a>
-      <a href="#video-arhiva">Video Arhiva</a>
+      <a href="tesla.html">Biografija Tesla</a>
+      <a href="sava.html">Biografija Sava</a>
+      <button id="musicToggle" class="music-btn">🎵 Muzika: OFF</button>
     </nav>
   </header>
 
@@ -33,28 +37,29 @@
         <h2>Sila uma koja je menjala granice sveta.</h2>
         <p>Otkrijte priču o dvojici velikana koji su redefinisali istoriju: Nikoli Tesli, čoveku koji je ukrotio munje, i grofu Savi Vladislaviću, diplomati koji je pomerao carstva.</p>
         <div class="hero-actions">
-          <a href="#tesla" class="button primary">Istraži Teslu</a>
-          <a href="#sava" class="button secondary">Istraži Savu</a>
+          <a href="tesla.html" class="button primary">O Nikoli Tesli</a>
+          <a href="sava.html" class="button secondary">O Grofu Savi</a>
         </div>
       </div>
       <div class="hero-visual">
         <div class="tesla-coil">
-          <div class="spark"></div>
+          <div class="lightning-bolt"></div>
+          <div class="lightning-bolt delayed"></div>
+          <div class="lightning-bolt small"></div>
         </div>
       </div>
     </section>
 
     <section class="section grid two-columns" id="tesla">
-      <div>
+      <div class="scroll-anim">
         <span class="eyebrow" style="color: var(--primary)">Gospodar Munja</span>
         <h3>Nikola Tesla</h3>
         <p>Vizionarski pronalazač čiji su izumi na polju naizmenične struje i bežične komunikacije postali stubovi moderne civilizacije. Njegova svetlost i danas obasjava planetu.</p>
-        
         <div class="video-container-custom">
             <iframe src="https://www.youtube.com/embed/TVOJ_ID_VIDEA_1" frameborder="0" allowfullscreen></iframe>
         </div>
       </div>
-      <div class="card highlight">
+      <div class="card highlight scroll-anim">
         <h4>Ključno Nasleđe</h4>
         <ul>
           <li><strong>Polifazni sistem:</strong> Temelj svetske elektro-mreže.</li>
@@ -65,19 +70,18 @@
     </section>
 
     <section class="section grid two-columns reverse-mobile" id="sava">
-      <div class="card highlight gold-card">
+      <div class="card highlight gold-card scroll-anim">
         <h4>Diplomatski Podvizi</h4>
         <ul>
-          <li><strong>Mir u Aziji:</strong> Razgraničenje Rusije i Kine.</li>
+          <li><strong>Mir u Aziji:</strong> Razgraničenje Rusije i Kine (Kjahtinski mir).</li>
           <li><strong>Carska služba:</strong> Najodaniji savetnik Petra Velikog.</li>
           <li><strong>Koren tradicije:</strong> Čuvar pravoslavlja i ktitor prosvete.</li>
         </ul>
       </div>
-      <div>
+      <div class="scroll-anim">
         <span class="eyebrow" style="color: var(--accent)">Grof Raguzinski</span>
         <h3>Sava Vladislavić</h3>
-        <p>Srpski plemić iz Hercegovine čija je mudrost oblikovala spoljnu politiku moćne Rusije. Čovek koji je svojim intelektom i diplomatijom povezao daleke kulture i narode.</p>
-        
+        <p>Srpski plemić iz Hercegovine čija je mudrost oblikovala spoljnu politiku moćne Rusije. Čovek koji je svojim intelektom i diplomatijom povezao daleke kulture.</p>
         <div class="video-container-custom gold-glow">
             <iframe src="https://www.youtube.com/embed/TVOJ_ID_VIDEA_2" frameborder="0" allowfullscreen></iframe>
         </div>
@@ -87,22 +91,22 @@
     <section class="section" id="video-arhiva">
       <h3 style="text-align: center; margin-bottom: 3rem;">Moja Video Arhiva</h3>
       <div class="cards-grid">
-        <article class="card video-card">
+        <article class="card video-card scroll-anim">
           <div class="mini-video-placeholder">Tvoj Video 3</div>
           <h4>Simboli i Tajne</h4>
         </article>
-        <article class="card video-card">
+        <article class="card video-card scroll-anim">
           <div class="mini-video-placeholder">Tvoj Video 4</div>
           <h4>Istorijski Kontekst</h4>
         </article>
-        <article class="card video-card">
+        <article class="card video-card scroll-anim">
           <div class="mini-video-placeholder">Tvoj Video 5</div>
           <h4>Ostavština za Budućnost</h4>
         </article>
       </div>
     </section>
 
-    <section class="section quote-panel" id="quote">
+    <section class="section quote-panel scroll-anim">
       <div>
         <h3>Mudrost Vizionara</h3>
         <blockquote>"Neka budućnost kaže istinu i proceni svakoga prema njegovom radu i dostignućima."</blockquote>
