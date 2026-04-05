@@ -1,4 +1,4 @@
-// Aktivacija linkova u navigaciji na klik
+// Aktivacija linkova u navigaciji
 const navLinks = document.querySelectorAll('nav a');
 
 navLinks.forEach(link => {
@@ -8,9 +8,9 @@ navLinks.forEach(link => {
   });
 });
 
-// Animacija pojavljivanja sekcija (Intersection Observer)
+// Animacija pojavljivanja sekcija pri skrolu
 const observerOptions = {
-    threshold: 0.15
+    threshold: 0.1
 };
 
 const observer = new IntersectionObserver((entries) => {
@@ -24,7 +24,7 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.section').forEach(section => {
     section.style.opacity = "0";
-    section.style.transform = "translateY(40px)";
-    section.style.transition = "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1)";
+    section.style.transform = "translateY(30px)";
+    section.style.transition = "all 0.8s ease-out";
     observer.observe(section);
 });
