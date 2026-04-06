@@ -15,7 +15,7 @@ if (music && musicBtn) {
     }
   });
 }
- 
+
 /* ══ HAMBURGER ══ */
 const hamburger = document.getElementById('hamburger');
 const mainNav   = document.getElementById('mainNav');
@@ -31,7 +31,7 @@ if (hamburger && mainNav) {
     })
   );
 }
- 
+
 /* ══ PARTICLES ══ */
 const canvas = document.getElementById('particleCanvas');
 if (canvas) {
@@ -57,11 +57,10 @@ if (canvas) {
   for(let i=0;i<90;i++) particles.push(new P());
   (function loop(){ ctx.clearRect(0,0,W,H); particles.forEach(p=>{p.upd();p.drw();}); requestAnimationFrame(loop); })();
 }
- 
+
 /* ══ SCROLL ANIMATIONS ══ */
 const obs = new IntersectionObserver(entries =>
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }),
   { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
 );
 document.querySelectorAll('.scroll-anim').forEach(el => obs.observe(el));
- 
