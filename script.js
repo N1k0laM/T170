@@ -6,11 +6,11 @@ if (music && musicBtn) {
   musicBtn.addEventListener('click', () => {
     if (music.paused) {
       music.play();
-      musicBtn.innerText = "🎵 ON";
+      musicBtn.innerText = "♫ ON";
       musicBtn.classList.add('active');
     } else {
       music.pause();
-      musicBtn.innerText = "🎵 OFF";
+      musicBtn.innerText = "♫ OFF";
       musicBtn.classList.remove('active');
     }
   });
