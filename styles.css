@@ -296,3 +296,231 @@ nav a:hover{color:var(--primary);}
 @media (max-width: 400px) {
   .coin-scene { width: 150px; height: 150px; }
 }
+
+/* ══ DEJAN ILIĆ BIOGRAPHY SECTION ══ */
+.dejan-bio {
+  padding: 80px 5%;
+  position: relative;
+  overflow: hidden;
+}
+.dejan-bio::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 20% 50%, rgba(0,212,255,0.04) 0%, transparent 70%),
+              radial-gradient(ellipse 50% 60% at 80% 50%, rgba(245,200,66,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+.bio-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.bio-photo-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.4rem;
+}
+.bio-photo-frame {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+}
+.bio-photo-frame::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(0,212,255,0.6), rgba(245,200,66,0.4), rgba(0,212,255,0.2));
+  z-index: 0;
+}
+.bio-photo {
+  width: 100%;
+  border-radius: 20px;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+  position: relative;
+  z-index: 1;
+  filter: contrast(1.05) brightness(1.02);
+  transition: transform 0.4s ease;
+}
+.bio-photo:hover {
+  transform: scale(1.02);
+}
+.bio-photo-glow {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 30px;
+  background: radial-gradient(ellipse, rgba(0,212,255,0.25) 0%, transparent 70%);
+  filter: blur(10px);
+  z-index: 0;
+  pointer-events: none;
+}
+.bio-name-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.8rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border-cyan);
+  border-radius: 50px;
+  backdrop-filter: blur(12px);
+}
+.bio-title-label {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--primary);
+  font-weight: 500;
+}
+.bio-name-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.1;
+}
+.bio-text-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  padding-top: 0.5rem;
+}
+.bio-quote-block {
+  position: relative;
+  padding: 1.8rem 2rem;
+  background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  border: 1px solid var(--border-cyan);
+  border-radius: var(--radius);
+  border-left: 3px solid var(--primary);
+}
+.bio-quote-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 5rem;
+  color: var(--primary);
+  opacity: 0.2;
+  line-height: 0.5;
+  position: absolute;
+  top: 1.2rem;
+  left: 1rem;
+  user-select: none;
+}
+.bio-quote-mark.closing {
+  top: auto;
+  bottom: 0.5rem;
+  left: auto;
+  right: 1rem;
+}
+.bio-quote-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.08rem;
+  font-style: italic;
+  line-height: 1.75;
+  color: var(--text);
+  position: relative;
+  z-index: 1;
+  padding: 0 0.5rem;
+}
+.bio-body-text {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.78;
+}
+.bio-body-text em {
+  color: var(--accent);
+  font-style: normal;
+  font-weight: 500;
+}
+.bio-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.bio-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 1rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+.bio-tag.cyan-tag {
+  background: var(--primary-dim);
+  border: 1px solid var(--border-cyan);
+  color: var(--primary);
+}
+.bio-tag.gold-tag {
+  background: var(--accent-dim);
+  border: 1px solid var(--border-gold);
+  color: var(--accent);
+}
+.bio-nickname {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  padding: 0.8rem 1.2rem;
+  background: var(--surface);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+.bio-nickname strong {
+  color: var(--accent);
+}
+
+/* Dejan bio responsive */
+@media (max-width: 900px) {
+  .bio-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .bio-photo-col {
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+  }
+  .bio-photo-frame {
+    max-width: 180px;
+    flex-shrink: 0;
+  }
+  .bio-name-badge {
+    align-items: flex-start;
+  }
+}
+@media (max-width: 600px) {
+  .dejan-bio { padding: 50px 5%; }
+  .bio-photo-col {
+    flex-direction: column;
+  }
+  .bio-photo-frame {
+    max-width: 220px;
+  }
+  .bio-quote-block {
+    padding: 1.4rem 1.2rem;
+  }
+  .bio-quote-mark {
+    font-size: 3.5rem;
+  }
+  .bio-quote-text {
+    font-size: 0.97rem;
+  }
+  .bio-tags {
+    gap: 0.4rem;
+  }
+  .bio-tag {
+    font-size: 0.68rem;
+    padding: 0.35rem 0.75rem;
+  }
+}
+
