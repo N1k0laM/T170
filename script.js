@@ -64,3 +64,35 @@ const obs = new IntersectionObserver(entries =>
   { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
 );
 document.querySelectorAll('.scroll-anim').forEach(el => obs.observe(el));
+function switchTab(tabId, index) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
+    
+    document.getElementById(tabId).classList.add('active');
+    document.querySelectorAll('.tab-item')[index].classList.add('active');
+    
+    const underline = document.querySelector('.tab-underline');
+    underline.style.left = (index * 50) + '%';
+}
+
+// Честице (кратка верзија)
+const canvs = document.getElementById('particleCanvas');
+const ctx = canvs.getContext('2d');
+let w = canvs.width = window.innerWidth;
+let h = canvs.height = window.innerHeight;
+let ps = [];
+
+for(let i=0; i<40; i++) ps.push({x:Math.random()*w, y:Math.random()*h, s:Math.random()*2, vx:Math.random()-0.5, vy:Math.random()-0.5});
+
+function draw() {
+    ctx.clearRect(0,0,w,h);
+    ctx.fillStyle = "rgba(245, 200, 66, 0.2)";
+    ps.forEach(p => {
+        p.x+=p.vx; p.y+=p.vy;
+        if(p.x<0 || p.x>w) p.vx*=-1;
+        if(p.y<0 || p.y>h) p.vy*=-1;
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.s, 0, Math.PI*2); ctx.fill();
+    });
+    requestAnimationFrame(draw);
+}
+draw();

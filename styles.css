@@ -296,3 +296,125 @@ nav a:hover{color:var(--primary);}
 @media (max-width: 400px) {
   .coin-scene { width: 150px; height: 150px; }
 }
+:root {
+    --bg: #03080f;
+    --gold: #f5c842;
+    --text: #edf2ff;
+    --muted: #7a8aaa;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+}
+
+#particleCanvas { position: fixed; top: 0; left: 0; z-index: -1; }
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 5%;
+    background: rgba(3, 8, 15, 0.9);
+    align-items: center;
+}
+
+.brand { display: flex; align-items: center; gap: 15px; font-weight: bold; color: var(--gold); }
+
+/* Лого новчић */
+.logo-coin-wrap { width: 45px; height: 45px; perspective: 1000px; }
+.logo-coin-inner {
+    width: 100%; height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+.logo-coin-wrap:hover .logo-coin-inner { transform: rotateY(180deg); }
+.logo-coin-front, .logo-coin-back {
+    position: absolute; width: 100%; height: 100%;
+    backface-visibility: hidden; border-radius: 50%; overflow: hidden;
+}
+.logo-coin-back { transform: rotateY(180deg); }
+.logo-coin-front img, .logo-coin-back img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Табови */
+.tabs-container {
+    display: flex;
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    z-index: 100;
+}
+.tab-item {
+    flex: 1;
+    text-align: center;
+    padding: 15px 0;
+    cursor: pointer;
+    color: var(--muted);
+    font-weight: 500;
+    transition: 0.3s;
+}
+.tab-item.active { color: var(--text); }
+.tab-underline {
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    width: 50%;
+    background: var(--gold);
+    transition: 0.3s ease;
+}
+
+/* 3D Картица */
+.flip-card {
+    width: 280px;
+    height: 380px;
+    perspective: 1000px;
+    margin: 40px auto;
+}
+.flip-card-inner {
+    width: 100%; height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+.flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
+.flip-card-front, .flip-card-back {
+    position: absolute; width: 100%; height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    border: 1px solid var(--gold);
+}
+.flip-card-front img { width: 100%; height: 100%; object-fit: cover; border-radius: 14px; }
+.flip-card-back {
+    background: #0a101a;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.bio-text {
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+.pdf-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--gold);
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.tab-panel { display: none; padding: 20px; }
+.tab-panel.active { display: block; }
