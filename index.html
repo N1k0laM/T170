@@ -271,7 +271,46 @@
 
     <!-- ── TESLIN NAROD HEADING ── -->
     <section class="section" id="teslin-narod" style="text-align: center; padding: 4rem 2rem 0;">
-      <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; color: var(--primary); text-transform: uppercase; letter-spacing: 3px; font-weight: 600; margin: 0;">Теслин народ</h2>
+      <style>
+        .gold-shine-text {
+          font-family: 'Cormorant Garamond', serif;
+          font-size: 3.5rem;
+          text-transform: uppercase;
+          letter-spacing: 3px;
+          font-weight: 600;
+          margin: 0;
+          
+          /* Golden gradient background */
+          background: linear-gradient(
+            to right,
+            #bf953f 0%,
+            #fcf6ba 25%,
+            #b38728 50%,
+            #fbf5b7 75%,
+            #aa771c 100%
+          );
+          background-size: 200% auto;
+          
+          /* Text clip for gradient text */
+          color: #000;
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          
+          /* Animation */
+          animation: shine 3s linear infinite;
+          
+          /* Subtle drop shadow to make it pop */
+          filter: drop-shadow(0px 2px 10px rgba(179, 135, 40, 0.4));
+        }
+
+        @keyframes shine {
+          to {
+            background-position: 200% center;
+          }
+        }
+      </style>
+      <h2 class="gold-shine-text">Теслин народ</h2>
     </section>
 
     <!-- ── ДЕJAN ILIĆ BIOGRAPHY ── -->
