@@ -1881,6 +1881,45 @@ nav a:hover {
   font-size: 0.85rem;
 }
 
+.gold-shine-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 600;
+  margin: 0;
+  background: linear-gradient(to right,
+      #bf953f 0%,
+      #fcf6ba 25%,
+      #b38728 50%,
+      #fbf5b7 75%,
+      #aa771c 100%);
+  background-size: 200% auto;
+  color: #000;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite;
+  filter: drop-shadow(0px 2px 10px rgba(179, 135, 40, 0.4));
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@media (max-width: 768px) {
+  .gold-shine-text {
+    font-size: 1.8rem !important;
+    letter-spacing: 1px;
+  }
+  .gilded-frame {
+    padding: 8px; /* Less padding on mobile to make image appear relatively larger */
+    margin: 1.5rem auto;
+  }
+}
+
 .section-description {
   max-width: 900px;
   margin: 3rem auto;
