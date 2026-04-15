@@ -249,20 +249,22 @@ nav a:hover {
 
 /* HERO */
 .hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  padding: 80px 5% 80px;
+  justify-content: center;
+  gap: 4rem;
+  padding: 100px 5% 100px;
   min-height: 92vh;
   position: relative;
+  text-align: center;
 }
 
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 55% 70% at 75% 50%, rgba(0, 212, 255, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle at center, rgba(0, 212, 255, 0.08) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -282,12 +284,13 @@ nav a:hover {
 .hero-desc {
   color: var(--text-muted);
   font-size: 0.97rem;
-  max-width: 480px;
-  margin-bottom: 1.8rem;
+  max-width: 580px;
+  margin: 0 auto 1.8rem;
 }
 
 .hero-actions {
   display: flex;
+  justify-content: center;
   gap: 0.8rem;
   flex-wrap: wrap;
   margin-bottom: 2.5rem;
@@ -328,10 +331,12 @@ nav a:hover {
 
 .hero-stats {
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 1.8rem;
   padding-top: 1.8rem;
   border-top: 1px solid var(--border);
+  width: 100%;
 }
 
 .stat {
