@@ -1091,6 +1091,7 @@ nav a:hover {
   .dual-portrait {
     max-width: 100%;
     border-radius: 14px;
+    margin: 0 auto;
   }
 
   .dp-img-wrap {
@@ -1109,6 +1110,12 @@ nav a:hover {
   .two-col-layout {
     grid-template-columns: 1fr;
     gap: 2rem;
+    text-align: center;
+  }
+
+  .col-text p {
+    margin: 0 auto;
+    max-width: 100%;
   }
 
   .two-col-layout.reverse {
@@ -1139,6 +1146,7 @@ nav a:hover {
 
   .section {
     padding: 50px 5%;
+    text-align: center;
   }
 
   .section-title {
@@ -1154,6 +1162,11 @@ nav a:hover {
   .bio-hero {
     padding: 80px 5% 35px;
     min-height: 40vh;
+    text-align: center;
+  }
+
+  .bio-hero-content {
+    margin: 0 auto;
   }
 
   .bio-hero h1 {
@@ -1535,14 +1548,33 @@ nav a:hover {
 
   .bio-photo-col {
     flex-direction: column;
+    text-align: center;
   }
 
   .bio-photo-frame {
-    max-width: 220px;
+    max-width: 250px;
+    margin: 0 auto;
+  }
+
+  .bio-photo {
+    object-fit: contain; /* Ensure whole image is visible if frame aspect ratio differs */
+    background: rgba(0,0,0,0.2);
+  }
+
+  .bio-name-badge {
+    align-items: center;
+    width: fit-content;
+    margin: 0 auto;
+  }
+
+  .bio-text-col {
+    text-align: center;
+    align-items: center;
   }
 
   .bio-quote-block {
     padding: 1.4rem 1.2rem;
+    text-align: center;
   }
 
   .bio-quote-mark {
@@ -1554,12 +1586,23 @@ nav a:hover {
   }
 
   .bio-tags {
+    justify-content: center;
     gap: 0.4rem;
   }
 
   .bio-tag {
     font-size: 0.68rem;
     padding: 0.35rem 0.75rem;
+  }
+
+  .bio-pdf-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .bio-nickname {
+    margin: 0 auto;
+    width: 100%;
   }
 }
 
@@ -1838,10 +1881,32 @@ nav a:hover {
   font-size: 0.85rem;
 }
 
+.section-description {
+  max-width: 900px;
+  margin: 3rem auto;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  text-wrap: balance;
+}
+
+@media (max-width: 768px) {
+  .section-description {
+    font-size: 1.2rem;
+    margin: 2rem auto;
+    padding: 0 10px;
+  }
+}
+
 /* GILDED FRAME EFFECT */
 .gilded-frame {
   position: relative;
-  display: inline-block;
+  display: block;
+  width: fit-content;
+  max-width: 90%;
+  margin: 2rem auto;
   padding: 15px;
   background: linear-gradient(135deg, 
     #b38728 0%, 
@@ -1855,8 +1920,8 @@ nav a:hover {
   animation: gilded-shine 8s ease infinite;
   border-radius: 4px;
   box-shadow: 0 15px 45px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(0,0,0,0.4);
-  margin: 2rem 0;
   border: 1px solid rgba(255, 215, 0, 0.3);
+  text-align: center;
 }
 
 .gilded-frame::before {
@@ -1880,10 +1945,14 @@ nav a:hover {
 .gilded-frame img {
   display: block;
   max-width: 100%;
+  max-height: 450px;
+  width: auto;
   height: auto;
-  border: 2px solid #000;
+  margin: 0 auto;
+  border: 1px solid rgba(0,0,0,0.8);
   position: relative;
   z-index: 0;
+  object-fit: contain;
 }
 
 @keyframes gilded-shine {
