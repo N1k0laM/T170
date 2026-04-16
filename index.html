@@ -12,7 +12,6 @@
     rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <style>
-    /* ── COIN ─────────────────────────────── */
     .coin-scene {
       perspective: 900px;
       width: 220px;
@@ -35,7 +34,6 @@
       transform-style: preserve-3d;
       border-radius: 50%;
       transition: box-shadow 0.3s;
-      /* start tilted so user sees it's 3D */
       transform: rotateX(10deg) rotateY(-20deg);
     }
 
@@ -48,7 +46,6 @@
       -webkit-backface-visibility: hidden;
     }
 
-    /* Front = Tesla */
     .coin-front {
       background: #03080f;
       box-shadow:
@@ -58,7 +55,7 @@
         0 0 50px rgba(0, 212, 255, 0.25);
     }
 
-    /* Back = Sava */
+
     .coin-back {
       background: #03080f;
       transform: rotateY(180deg);
@@ -78,7 +75,6 @@
       border-radius: 50%;
     }
 
-    /* coloured tint overlay */
     .coin-face::after {
       content: '';
       position: absolute;
@@ -101,7 +97,6 @@
           transparent 70%);
     }
 
-    /* shiny specular highlight */
     .coin-face::before {
       content: '';
       position: absolute;
@@ -114,7 +109,6 @@
       pointer-events: none;
     }
 
-    /* rim / edge cylinder illusion */
     .coin-rim {
       position: absolute;
       inset: 0;
@@ -123,7 +117,6 @@
       pointer-events: none;
     }
 
-    /* label strip below coin */
     .coin-label {
       text-align: center;
       margin-top: 1.1rem;
@@ -153,7 +146,6 @@
       opacity: 0.6;
     }
 
-    /* ambient glow ring on floor */
     .coin-glow {
       position: absolute;
       bottom: -18px;
@@ -189,7 +181,6 @@
 
   <header class="topbar">
     <div class="brand">
-      <!-- Logo = mini coin -->
       <div class="logo-coin-wrap" id="logoCoinMini">
         <div class="logo-coin-inner">
           <div class="logo-coin-front">
@@ -225,7 +216,7 @@
   </header>
 
   <main>
-    <!-- ── GIMNAZIJA SMEDEREVO ── -->
+
     <section class="section" id="gimnazija-smederevo" style="text-align: center; padding: 6rem 2rem 3rem;">
       <h2 class="gold-shine-text" style="margin-bottom: 1rem;">Гимназија у Смедереву</h2>
 
@@ -248,7 +239,7 @@
           class="button secondary">Блог "Очима младих"</a>
       </div>
     </section>
-    <!-- ── TESLIN NAROD HEADING ── -->
+
     <section class="section" id="teslin-narod" style="text-align: center; padding: 4rem 2rem 0;">
 
       <div style="text-align: center; margin-bottom: 2rem;">
@@ -258,7 +249,7 @@
       </div>
     </section>
 
-    <!-- ── ДЕJAN ILIĆ BIOGRAPHY ── -->
+
     <section class="dejan-bio" id="dejan-ilic">
       <div class="bio-inner">
         <div class="bio-photo-col">
@@ -293,7 +284,7 @@
           </div>
           <p class="bio-nickname">Широм света га називају <strong>„оцем микробатерије и паметне картице"</strong>.</p>
 
-          <!-- Article Links -->
+
           <div class="bio-links-section">
             <div class="bio-links-header">
               <span class="bio-links-label">📰 Медијска пажња</span>
@@ -320,7 +311,7 @@
             </div>
           </div>
 
-          <!-- PDF Download -->
+
           <a href="Prof. dr dejan ilic.pdf" download class="bio-pdf-btn" id="bioDownloadPdf">
             <span class="bio-pdf-icon">📄</span>
             <span class="bio-pdf-text">
@@ -335,7 +326,7 @@
 
     <div class="section-divider gold-div"><span>✦</span><span>✦</span><span>✦</span></div>
 
-    <!-- ── MARIJA GNJATOVIĆ BIOGRAPHY ── -->
+
     <section class="dejan-bio marija-bio" id="marija-gnjatovic">
       <div class="bio-inner">
         <div class="bio-photo-col">
@@ -908,7 +899,7 @@
           <div class="coin-glow" id="coinGlow"></div>
           <div class="coin-label">
             <span class="coin-label-name" id="coinLabelName">Никола Тесла</span>
-            <span class="coin-label-hint">← превуци да окренеш →</span>
+            <span class="coin-label-hint" style="color: aqua;">← превуци да окренеш →</span>
           </div>
         </div>
       </div>
