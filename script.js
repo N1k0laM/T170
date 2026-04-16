@@ -1,19 +1,42 @@
 /* ══ MUZIKA ══ */
 const music = document.getElementById('bgMusic');
 const musicBtn = document.getElementById('musicToggle');
+
 if (music && musicBtn) {
   music.volume = 0.12;
+
+  // Restore state from localStorage
+  const musicPlaying = localStorage.getItem('musicPlaying') === 'true';
+  if (musicPlaying) {
+    music.play().catch(() => {
+      // Auto-play might be blocked by browser on first load
+      localStorage.setItem('musicPlaying', 'false');
+      updateMusicUI(false);
+    });
+    updateMusicUI(true);
+  }
+
   musicBtn.addEventListener('click', () => {
     if (music.paused) {
       music.play();
+      updateMusicUI(true);
+      localStorage.setItem('musicPlaying', 'true');
+    } else {
+      music.pause();
+      updateMusicUI(false);
+      localStorage.setItem('musicPlaying', 'false');
+    }
+  });
+
+  function updateMusicUI(play) {
+    if (play) {
       musicBtn.innerText = "♫ ON";
       musicBtn.classList.add('active');
     } else {
-      music.pause();
       musicBtn.innerText = "♫ OFF";
       musicBtn.classList.remove('active');
     }
-  });
+  }
 }
 
 /* ══ HAMBURGER ══ */
