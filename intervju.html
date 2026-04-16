@@ -156,16 +156,22 @@
     .video-frame-wrap {
       position: relative;
       width: 100%;
-      aspect-ratio: 16 / 9;
-      background: #050a14;
+      max-width: 900px;
+      margin: 2rem auto 0;
+      background: #000;
       border-radius: 20px;
       border: 1px solid var(--border-gold);
       box-shadow: 0 0 40px rgba(245, 200, 66, 0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
       overflow: hidden;
-      margin-top: 2rem;
+      display: block;
+      line-height: 0; /* Fixes small gaps below video */
+    }
+
+    .video-frame-wrap video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 18px; /* Slightly less than container to fit inside border */
     }
 
     .video-frame-wrap::before {
@@ -176,22 +182,7 @@
       pointer-events: none;
     }
 
-    .video-placeholder-icon {
-      font-size: 4rem;
-      color: var(--accent);
-      opacity: 0.3;
-      filter: drop-shadow(0 0 20px var(--accent));
-    }
 
-    .video-info {
-      position: absolute;
-      bottom: 2rem;
-      left: 0;
-      right: 0;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      letter-spacing: 1px;
-    }
   </style>
 </head>
 
@@ -243,8 +234,10 @@
       <h2 class="gold-shine-text">Интервју са Николом Теслом</h2>
 
       <div class="video-frame-wrap">
-        <div class="video-placeholder-icon">▶</div>
-        <div class="video-info">Видео снимак се учитава...</div>
+        <video controls playsinline>
+          <source src="teslaaa.mp4" type="video/mp4">
+          Ваш претраживач не подржава видео ознаку.
+        </video>
       </div>
 
     </section>
