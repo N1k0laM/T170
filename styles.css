@@ -866,6 +866,12 @@ nav a:hover {
   overflow: hidden;
 }
 
+@media (min-width: 1024px) {
+  .bio-hero {
+    min-height: 82vh;
+  }
+}
+
 .bio-hero-bg {
   position: absolute;
   inset: 0;
@@ -876,7 +882,7 @@ nav a:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 45%;
+  object-position: center 15%;
   filter: grayscale(10%) brightness(0.85) contrast(1.05);
 }
 
